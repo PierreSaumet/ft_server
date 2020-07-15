@@ -39,10 +39,10 @@ WORKDIR srcs
 
 
 # Delete useless files
-RUN rm -rf latest-fr_FR.tar.gz \ rm -rf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+# RUN rm -rf latest-fr_FR.tar.gz \ rm -rf phpMyAdmin-4.9.0.1-all-languages.tar.gz
 
 # Rename
-RUN mv /srcs/phpMyAdmin-4.9.0.1-all-languages /srcs/phpMyAdmi
+# RUN mv /srcs/phpMyAdmin-4.9.0.1-all-languages /srcs/phpMyAdmi
 
 RUN echo "OK"
 
