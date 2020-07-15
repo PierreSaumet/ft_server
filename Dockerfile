@@ -8,9 +8,15 @@ RUN echo "hello"
 
 RUN apt-get update
 
+
+# Install nginx
+RUN apt-get -y install nginx
+
+# Install Mariadb et wget
 RUN apt-get install -y mariadb-server 	\ 
 				wget
 
+# Install all packets for php
 RUN apt-get install -y php 	\
 				php-fpm 	\
 				php-mysql 	\
