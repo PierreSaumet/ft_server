@@ -8,10 +8,17 @@ RUN echo "hello"
 
 RUN apt-get update
 
-RUN apt-get install -y mariadb-server \ 
+RUN apt-get install -y mariadb-server 	\ 
 				wget
 
+RUN apt-get install -y php 	\
+				php-fpm 	\
+				php-mysql 	\
+				php-mbstring
+
 RUN mkdir srcs
+
+COPY srcs ./srcs/
 
 WORKDIR srcs
 
@@ -29,7 +36,7 @@ RUN tar -xzvf latest-fr_FR.tar.gz
 RUN rm -rf latest-fr_FR.tar.gz \ rm -rf phpMyAdmin-4.9.0.1-all-languages.tar.gz
 
 # Rename
-RUN mv /srcs/phpMyAdmin-4.9.0.1-all-languages /srcs/phpMyAdmin
+RUN mv /srcs/phpMyAdmin-4.9.0.1-all-languages /srcs/phpMyAdmi
 
 RUN echo "OK"
 
