@@ -32,9 +32,13 @@ bash db_script.sh wordpress db_user db_pwd
 
 
 # RTUC CHELOU
+echo 'truc chelou'
 # mysql wordpress -u root < /root/db_wordpress.sql
 # fin truc chelou
 echo 'Fin de la commande \n'
+
+chown -R www-data:www-data /var/www
+
 
 echo 'Test du ssl ...'
 cd ssl
