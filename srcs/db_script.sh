@@ -11,13 +11,15 @@ E_BADARGS=65
 MYSQL=`which mysql`
 
 Q1="CREATE DATABASE IF NOT EXISTS $1;"
-Q2="GRANT ALL ON *.* TO '$2'@'localhost' IDENTIFIED BY '$3';"
-Q3="FLUSH PRIVILEGES;"
-SQL="${Q1}${Q2}${Q3}"
+Q2="CREATE USER '$2'@'localhost';"
+Q3="SET password FOR '$2'@'localhost' = password('$3');"
+Q4="GRANT ALL ON *.* TO '$2'@'localhost' IDENTIFIED BY '$3';"
+Q5="FLUSH PRIVILEGES;"
+SQL="${Q1}${Q2}${Q3}${Q4}${Q5}"
 
 if [ $# -ne $EXPECTED_ARGS ]
 then
-  echo "Usage: $0 dbname dbuser dbpass"
+  echo "Usage: $0 db_name db_user db_pwd"
   exit $E_BADARGS
 fi
 
