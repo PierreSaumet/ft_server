@@ -23,7 +23,17 @@ cp -r wordpress /var/www/localhost/wordpress
 cp -r phpMyAdmin /var/www/localhost/phpMyAdmin
 
 bash db_script.sh
-mysql db_name -u root < /root/wordpress.sql
+# echo 'TEST de la commande db_name ...\n'
+# mysql db_name -u root < /root/wordpress.sql
+# echo 'Fin de la commande \n'
+
+echo 'Test du ssl ...'
+cd ssl
+chmod +x mkcert
+./mkcert -install
+./mkcert localhost
+cd ..
+echo 'Fin du test ssl!'
 
 service nginx reload
 service nginx configtest
@@ -33,4 +43,4 @@ service nginx status
 /etc/init.d/php7.3-fpm start
 /etc/init.d/php7.3-fpm status
 
-# tail -f /var/log/nginx/access.log /var/log/nginx/error.log
+ tail -f /var/log/nginx/access.log /var/log/nginx/error.log
