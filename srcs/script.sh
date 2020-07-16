@@ -22,10 +22,19 @@ ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/
 cp -r wordpress /var/www/localhost/wordpress
 cp -r phpMyAdmin /var/www/localhost/phpMyAdmin
 
-bash db_script.sh
-# echo 'TEST de la commande db_name ...\n'
-# mysql db_name -u root < /root/wordpress.sql
-# echo 'Fin de la commande \n'
+#bash db_wordpress.sql
+echo 'TEST de la commande db_name ...\n'
+# service mysql start
+echo 'on rend  excecutable'
+chmod 755 db_script.sh
+echo 'on lance avec les arguments'
+bash db_script.sh wordpress db_user db_pwd
+
+
+# RTUC CHELOU
+# mysql wordpress -u root < /root/db_wordpress.sql
+# fin truc chelou
+echo 'Fin de la commande \n'
 
 echo 'Test du ssl ...'
 cd ssl
@@ -35,6 +44,7 @@ chmod +x mkcert
 cd ..
 echo 'Fin du test ssl!'
 
+
 service nginx reload
 service nginx configtest
 service nginx start
@@ -43,4 +53,4 @@ service nginx status
 /etc/init.d/php7.3-fpm start
 /etc/init.d/php7.3-fpm status
 
- tail -f /var/log/nginx/access.log /var/log/nginx/error.log
+tail -f /var/log/nginx/access.log /var/log/nginx/error.log
