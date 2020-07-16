@@ -44,7 +44,8 @@ WORKDIR srcs
 # Rename
 # RUN mv /srcs/phpMyAdmin-4.9.0.1-all-languages /srcs/phpMyAdmi
 
-ENTRYPOINT ["bash", "script.sh"]
+#ENTRYPOINT ["bash", "script.sh"]
+CMD ["bash", "script.sh"]
 
-RUN echo "OK"
+# RUN echo "OK"
 
