@@ -22,11 +22,11 @@ RUN apt-get install -y php 	\
 				php-mysql 	\
 				php-mbstring
 
-RUN mkdir srcs
+# RUN mkdir srcs
 
-COPY srcs ./srcs/
+COPY srcs ./root/
 
-WORKDIR srcs
+WORKDIR root
 
 # Download wordpress and phpMyAdmin to put them into the directory srcs
 # Attention se fait a build
@@ -46,6 +46,8 @@ WORKDIR srcs
 
 #ENTRYPOINT ["bash", "script.sh"]
 CMD ["bash", "script.sh"]
+
+# EXPOSE 80:80
 
 # RUN echo "OK"
 
