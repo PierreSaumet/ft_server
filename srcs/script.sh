@@ -34,7 +34,12 @@ chmod 755 db_script.sh
 
 # Create Database
 echo -e "${RED}Step 4: ${NC} Create Database with the name: wordpress, User: db_user and the Password: db_pwd"
-bash db_script.sh wordpress db_user db_pwd
+#bash db_script.sh wordpress db_user db_pwd
+bash db_script2.sh
+# echo "Incorporate databases"
+# mysql -u root -p wordpress < database.sql
+
+
 
 # Give right for Wordpress's connection
 echo -e "${GREEN} Allow's Wordpress to write${NC}"
@@ -67,4 +72,4 @@ echo "+-------------------------+"
 
 # Show "errors.log" and "access.log"
 echo -e "DISPLAY: ${YELLOW}error${NC} and ${BLUE} access ${NC}"
-tail -f /var/log/nginx/access.log /var/log/nginx/error.log
+ tail -f /var/log/nginx/access.log /var/log/nginx/error.log
