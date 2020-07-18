@@ -33,13 +33,8 @@ echo -e "${GREEN} Chmod db.script.sh ${NC}"
 chmod 755 db_script.sh
 
 # Create Database
-echo -e "${RED}Step 4: ${NC} Create Database with the name: wordpress, User: db_user and the Password: db_pwd"
-#bash db_script.sh wordpress db_user db_pwd
+echo -e "${RED}Step 4: ${NC} Create Database with the name: wordpress, User: wordpress and the Password: password. And incorporate database"
 bash db_script2.sh
-# echo "Incorporate databases"
-# mysql -u root -p wordpress < database.sql
-
-
 
 # Give right for Wordpress's connection
 echo -e "${GREEN} Allow's Wordpress to write${NC}"
