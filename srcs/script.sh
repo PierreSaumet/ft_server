@@ -29,8 +29,8 @@ cp -r wordpress /var/www/localhost/wordpress
 cp -r phpMyAdmin /var/www/localhost/phpMyAdmin
 
 # Make excecutable the database's file
-echo -e "${GREEN} Chmod db.script.sh ${NC}"
-chmod 755 db_script.sh
+echo -e "${GREEN} Chmod db.script2.sh ${NC}"
+chmod 755 db_script2.sh
 
 # Create Database
 echo -e "${RED}Step 4: ${NC} Create Database with the name: wordpress, User: wordpress and the Password: password. And incorporate database"
